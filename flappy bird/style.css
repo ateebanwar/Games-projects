@@ -1,0 +1,164 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #87CEEB, #f0f9ff);
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Game Container */
+.game-container {
+  position: relative;
+  width: 600px;
+  height: 800px;
+  background: linear-gradient(to bottom, #a1e3ff 0%, #d1f1ff 100%);
+  box-shadow: 0 0 50px rgba(0,0,0,0.2);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 4px solid #fff;
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Background Cloud Animation */
+.background {
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  background: url('1.png') repeat-x;
+  background-size: contain;
+  animation: cloudMove 60s linear infinite;
+  z-index: 1;
+}
+
+/* Bird */
+.bird {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: url('pngfind.com-flappy-bird-png-1340454.png') no-repeat center;
+  background-size: contain;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: flap 0.4s infinite;
+  z-index: 3;
+  border-radius: 50%;
+}
+
+/* Ground */
+.ground {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  background: url('https://i.ibb.co/gzrbgCN/ground.png') repeat-x;
+  background-size: cover;
+  animation: groundMove 2s linear infinite;
+  z-index: 2;
+}
+
+/* Title */
+.title {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 36px;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+  z-index: 4;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+/* Start Button */
+.start-btn {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 40px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  transition: 0.3s;
+  z-index: 5;
+}
+
+.start-btn:hover {
+  background: linear-gradient(to right, #ff758c, #ff7eb3);
+  transform: translateX(-50%) scale(1.05);
+  box-shadow: 0 5px 30px rgba(255, 118, 158, 0.5);
+}
+
+/* Animations */
+@keyframes groundMove {
+  0% { background-position-x: 0; }
+  100% { background-position-x: -100%; }
+}
+
+@keyframes cloudMove {
+  0% { background-position-x: 0; }
+  100% { background-position-x: -1000px; }
+}
+
+@keyframes flap {
+  0%, 100% { transform: translate(-50%, -50%) rotate(-10deg); }
+  50% { transform: translate(-50%, -50%) rotate(10deg); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-10px); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.pipe {
+  position: absolute;
+  width: 60px;
+  background: linear-gradient(to bottom, #6BFF95, #38b000);
+  border: 2px solid #2d6a4f;
+  z-index: 2;
+  border-radius: 10px;
+}
+
+.top-pipe {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.bottom-pipe {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.score {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  z-index: 10;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+}
+
