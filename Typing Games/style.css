@@ -1,0 +1,223 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to top, #87ceeb, #e0f7fa);
+  overflow: hidden;
+}
+
+.sky {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.cloud {
+  position: absolute;
+  background: white;
+  width: 180px;
+  height: 60px;
+  border-radius: 50%;
+  opacity: 0.8;
+  box-shadow: 60px 0 white, 30px -20px white, 90px -10px white;
+  animation: moveClouds 60s linear infinite;
+}
+
+.cloud1 { top: 40px; left: -200px; animation-delay: 0s; }
+.cloud2 { top: 100px; left: -400px; animation-delay: 15s; }
+.cloud3 { top: 160px; left: -600px; animation-delay: 30s; }
+
+@keyframes moveClouds {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(2000px); }
+}
+
+#gameArea {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  padding-top: 100px;
+}
+
+.grass {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 150px;
+  background-image: url("pngwing.com (1).png");
+  background-position: top;
+  background-size: cover;
+  z-index: 1;
+}
+
+.container {
+  text-align: center;
+  color: #333;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+#gameOverMessage {
+  display: none;
+  color: red;
+  font-size: 2em;
+  margin-top: 20px;
+}
+
+.controls {
+  margin-top: 20px;
+  font-size: 1.2em;
+}
+
+#restartBtn {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #ff5252;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+  display: none;
+  transition: 0.3s;
+}
+
+#restartBtn:hover {
+  background-color: #e53935;
+}
+
+.balloon {
+  position: absolute;
+  bottom: 0;
+  width: 50px;
+  height: 70px;
+  background: radial-gradient(circle at 30% 30%, #ff4081, #f50057);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  text-align: center;
+  line-height: 70px;
+  font-weight: bold;
+  color: white;
+  font-size: 1.5em;
+  animation: float 4s infinite ease-in-out;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+
+.slider-label {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #333;
+  margin-right: 10px;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 200px;
+  height: 10px;
+  background: linear-gradient(90deg, #00f2fe, #4facfe);
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.4), 0 0 20px rgba(0, 0, 255, 0.3);
+  transition: background 0.3s ease-in-out;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 10px;
+  background: inherit;
+  border-radius: 10px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffffff, #4facfe);
+  box-shadow: 0 0 8px #00f2fe, 0 0 15px #4facfe;
+  margin-top: -7px;
+  border: none;
+  transition: transform 0.2s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+input[type="range"]::-moz-range-track {
+  height: 10px;
+  background: linear-gradient(90deg, #00f2fe, #4facfe);
+  border-radius: 10px;
+}
+
+input[type="range"]::-moz-range-thumb {
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffffff, #4facfe);
+  box-shadow: 0 0 8px #00f2fe, 0 0 15px #4facfe;
+  border: none;
+  transition: transform 0.2s ease;
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+  transform: scale(1.2);
+}
+
+#startBtn {
+  padding: 16px 40px;
+  font-size: 24px;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: bold;
+  color: #0ff;
+  background: transparent;
+  border: 3px solid #0ff;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px #0ff, 0 0 20px #0ff inset;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+#startBtn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, #0ff, transparent);
+  transition: all 0.5s ease;
+  z-index: -1;
+}
+
+#startBtn:hover::before {
+  left: 100%;
+}
+
+#startBtn:hover {
+  color: #000;
+  background: #0ff;
+  box-shadow: 0 0 20px #0ff, 0 0 40px #0ff inset;
+  transform: scale(1.05);
+}
