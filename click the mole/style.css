@@ -1,0 +1,104 @@
+/* Global Reset and Font */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #f8f8f8;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 1rem;
+  color: #ffce54;
+  text-shadow: 0 0 20px #ffce54aa;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1.3rem;
+  margin: 10px 0;
+  color: #ffffffcc;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 120px);
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.hole {
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle at center, #444 0%, #222 100%);
+  border-radius: 50%;
+  box-shadow: inset 0 0 15px #000000aa, 0 0 10px #00000055;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.hole:hover {
+  transform: scale(1.05);
+}
+
+.hole:active {
+  transform: scale(0.95);
+}
+
+.hole:has(🐹) {
+  animation: pop 0.3s ease;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0);
+  }
+  60% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+#resetBtn {
+  margin-top: 25px;
+  padding: 12px 25px;
+  background: linear-gradient(to right, #ff416c, #ff4b2b);
+  color: white;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 0 15px #ff4b2b55;
+  display: none;
+}
+
+#resetBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px #ff4b2b88;
+}
+
+#gameOverMessage {
+  margin-top: 20px;
+  font-size: 1.8rem;
+  color: #ff4b2b;
+  text-shadow: 0 0 10px #ff4b2b66;
+}
