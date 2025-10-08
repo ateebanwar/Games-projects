@@ -1,0 +1,106 @@
+/* Reset and Base Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: #fff;
+}
+
+.game-container {
+  position: relative;
+  width: 400px;
+  height: 600px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 25px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+  padding: 30px 20px;
+  text-align: center;
+}
+
+/* Title */
+h1 {
+  font-size: 2.5rem;
+  color: #ff4e50;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px #ff4e5070;
+}
+
+/* Timer and Score */
+p {
+  font-size: 1.3rem;
+  margin: 10px 0;
+  color: #f7f7f7;
+}
+
+#time, #score {
+  font-weight: bold;
+  font-size: 1.6rem;
+  color: #00ffcc;
+  text-shadow: 0 0 10px #00ffcc80;
+}
+
+/* Balloon */
+#balloon {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 3.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  animation: float 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 15px #ff6ec4);
+}
+
+/* Float animation */
+@keyframes float {
+  0%   { transform: translateX(-50%) translateY(0); }
+  50%  { transform: translateX(-50%) translateY(-10px); }
+  100% { transform: translateX(-50%) translateY(0); }
+}
+
+/* Game Over Message */
+#gameOverMessage {
+  font-size: 1.5rem;
+  color: #ff4e50;
+  text-shadow: 0 0 10px #ff4e5070;
+  margin-top: 15px;
+  animation: blink 1s infinite;
+}
+
+/* Blink animation */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* Restart Button */
+#restartBtn {
+  padding: 12px 25px;
+  font-size: 1rem;
+  background: linear-gradient(to right, #ff416c, #ff4b2b);
+  border: none;
+  border-radius: 30px;
+  color: white;
+  cursor: pointer;
+  margin-top: 20px;
+  display: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px #ff416caa;
+}
+
+#restartBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px #ff416cbb, 0 0 50px #ff4b2baa;
+}
